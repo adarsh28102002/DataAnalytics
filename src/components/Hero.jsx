@@ -132,7 +132,12 @@ export default function Hero() {
 
             <div className="profile-card">
               <div className="profile-avatar-frame">
-                <img src="assets/images/adarsh_headshot.png" alt="Singh Adarsh Ramakar - Data Analyst & MIS Executive" loading="eager" />
+                <img
+                  src="/DataAnalytics/assets/images/adarsh_headshot.png"
+                  alt="Singh Adarsh Ramakar - Data Analyst & MIS Executive"
+                  loading="eager"
+                  onError={(e) => { e.currentTarget.src = "assets/images/adarsh_headshot.png"; }}
+                />
               </div>
               <div className="profile-info-block">
                 <div className="profile-name">Singh Adarsh Ramakar</div>
