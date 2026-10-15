@@ -33,7 +33,7 @@ export default function Resume() {
             </div>
             <div className="doc-contact-items">
               <div><i className="fas fa-envelope"></i> adarshsinghas2020@gmail.com</div>
-              <div><i className="fas fa-phone-alt"></i> +91 63544441918</div>
+              <div><i className="fas fa-phone-alt"></i> +91 6354441918</div>
               <div><i className="fas fa-map-marker-alt"></i> Surat, Gujarat, India</div>
               <div><i className="fab fa-linkedin"></i> LinkedIn | <i className="fab fa-github"></i> GitHub</div>
             </div>

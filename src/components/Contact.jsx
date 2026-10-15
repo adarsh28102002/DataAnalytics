@@ -83,11 +83,11 @@ export default function Contact() {
                 </div>
                 <div style={{ flexGrow: 1 }}>
                   <div className="contact-lbl">Direct Phone & WhatsApp</div>
-                  <a href="tel:+9163544441918" className="contact-val">+91 63544441918</a>
+                  <a href="tel:+916354441918" className="contact-val">+91 6354441918</a>
                 </div>
                 <button 
                   className="btn btn-outline btn-sm" 
-                  onClick={() => handleCopy('+9163544441918', 'phone')}
+                  onClick={() => handleCopy('+916354441918', 'phone')}
                   title="Copy Phone Number"
                 >
                   <i className={copiedKey === 'phone' ? 'fas fa-check' : 'fas fa-copy'}></i>
