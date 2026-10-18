@@ -91,6 +91,17 @@ export default function Resume() {
           {/* Projects */}
           <div className="doc-section">
             <h3 className="doc-section-heading">Featured Projects</h3>
+            
+            <div style={{ marginBottom: '18px' }}>
+              <h4 style={{ fontSize: '1.05rem', color: 'var(--text-main)' }}>Retail Store Sale & Performance Dashboard | Power BI | DAX | Time-Intelligence</h4>
+              <ul className="doc-bullet-list" style={{ marginTop: '8px' }}>
+                <li>Engineered an interactive executive Power BI dashboard analyzing retail store performance across multiple branches (Stores A–D) and 5 regional territories, tracking <strong>$4.34M net sales, 1,371 customers, and 372 returns</strong>.</li>
+                <li>Architected an automated Date dimension using <code>CALENDAR(MIN, MAX)</code> and implemented <strong>SAMEPERIODLASTYEAR</strong> time-intelligence measures with dynamic <strong>UNICHAR (▲ / ▼)</strong> YoY growth indicators.</li>
+                <li>Created conditional formatting DAX measures for green/red variance and a dynamic traffic-light color palette for product revenue distribution.</li>
+                <li>Delivered operational store audit matrices detailing region manager performance, salesperson quota contribution, and product cross-tabulations.</li>
+              </ul>
+            </div>
+
             <div>
               <h4 style={{ fontSize: '1.05rem', color: 'var(--text-main)' }}>Food Delivery Analytics Dashboard | Power BI | Power Query | DAX | Star Schema</h4>
               <ul className="doc-bullet-list" style={{ marginTop: '8px' }}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { foodDeliveryFullData } from '../data/portfolioData';
+import { allProjects, foodDeliveryFullData } from '../data/portfolioData';
 
 export default function Modal({ isOpen, onClose, modalData }) {
   const [copiedMeasureIdx, setCopiedMeasureIdx] = useState(null);
@@ -29,7 +29,9 @@ export default function Modal({ isOpen, onClose, modalData }) {
     });
   };
 
-  const data = foodDeliveryFullData;
+  const data = modalData?.project || allProjects[0] || foodDeliveryFullData;
+  const firstPageKey = data.pages ? Object.keys(data.pages)[0] : null;
+  const modalImgSrc = data.pages && firstPageKey ? data.pages[firstPageKey].image : 'assets/images/store_sale_overview.png';
 
   return (
     <div 
@@ -67,7 +69,7 @@ export default function Modal({ isOpen, onClose, modalData }) {
             </div>
 
             <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-card)', width: '100%' }}>
-              <img src="assets/images/swiggy_p1_overview.png" alt="Executive Overview" style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block' }} />
+              <img src={modalImgSrc} alt={data.title} style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block' }} />
             </div>
 
             <div>

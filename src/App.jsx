@@ -55,7 +55,7 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
-        <Projects onOpenProjectModal={() => handleOpenModal({ type: 'project' })} />
+        <Projects onOpenProjectModal={(data) => handleOpenModal(data || { type: 'project' })} />
         <Resume />
         <Contact />
       </main>

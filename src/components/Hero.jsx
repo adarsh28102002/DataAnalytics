@@ -70,7 +70,7 @@ export default function Hero() {
           <div className="hero-cta-group">
             <a href="#projects" className="btn btn-primary" id="heroViewProject">
               <i className="fas fa-chart-pie"></i>
-              <span>Explore Project</span>
+              <span>Explore Projects</span>
             </a>
             <a 
               href="assets/docs/Adarsh_Singh_Resume.pdf" 
