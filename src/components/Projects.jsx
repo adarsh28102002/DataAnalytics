@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { allProjects } from '../data/portfolioData';
 
-export default function Projects({ onOpenProjectModal }) {
+export default function Projects({ onOpenProjectModal, onNavigateToProjects }) {
   const [activeProjectId, setActiveProjectId] = useState('store-sale');
   const [activePageKey, setActivePageKey] = useState('overview');
   const [imgOpacity, setImgOpacity] = useState(1);
@@ -40,6 +40,25 @@ export default function Projects({ onOpenProjectModal }) {
   return (
     <section className="projects-section" id="projects">
       <div className="container">
+        {/* Dedicated Page Promotion Banner */}
+        <div className="projects-gallery-cta-banner">
+          <div className="cta-banner-content">
+            <span className="badge badge-cyan">
+              <i className="fas fa-th-large"></i> DEDICATED GALLERY AVAILABLE
+            </span>
+            <h4>Looking for all projects in a full grid view?</h4>
+            <p>Explore both enterprise Power BI projects in an isolated single-page grid gallery with live DAX and architecture.</p>
+          </div>
+          <button 
+            className="btn btn-primary btn-sm cta-banner-btn"
+            onClick={onNavigateToProjects}
+            id="homeOpenProjectsPageBtn"
+          >
+            <span>Open Projects Gallery (Grid View)</span>
+            <i className="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
         {/* Project Switcher Navigation */}
         <div className="project-collection-nav">
           <div className="project-collection-header">
@@ -347,6 +366,20 @@ export default function Projects({ onOpenProjectModal }) {
               </ul>
             </div>
           </div>
+        </div>
+
+        {/* Home Bottom CTA to Dedicated Projects Page */}
+        <div style={{ textAlign: 'center', marginTop: '36px' }}>
+          <button 
+            className="btn btn-primary"
+            style={{ padding: '14px 28px', fontSize: '0.98rem' }}
+            onClick={onNavigateToProjects}
+            id="viewAllProjectsGridBtn"
+          >
+            <i className="fas fa-th-large"></i>
+            <span>Explore All 4 Projects in Full Grid View</span>
+            <i className="fas fa-arrow-right"></i>
+          </button>
         </div>
       </div>
     </section>

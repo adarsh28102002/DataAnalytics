@@ -49,7 +49,7 @@ function AnimatedCounter({ target, suffix = '', decimals = 0 }) {
   );
 }
 
-export default function Hero() {
+export default function Hero({ onNavigateToProjects }) {
   return (
     <section className="hero-section" id="home">
       <div className="container hero-grid">
@@ -68,7 +68,17 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta-group">
-            <a href="#projects" className="btn btn-primary" id="heroViewProject">
+            <a 
+              href="#/projects" 
+              className="btn btn-primary" 
+              id="heroViewProject"
+              onClick={(e) => {
+                if (onNavigateToProjects) {
+                  e.preventDefault();
+                  onNavigateToProjects();
+                }
+              }}
+            >
               <i className="fas fa-chart-pie"></i>
               <span>Explore Projects</span>
             </a>

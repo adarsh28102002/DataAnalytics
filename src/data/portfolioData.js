@@ -1,6 +1,5 @@
 export const kpiStripData = [
   { target: 4, suffix: '+', label: 'Years MIS & Analytics Experience', decimals: 0 },
-  { target: 200, suffix: 'K+', label: 'Transactions Modeled & Analyzed', decimals: 0 },
   { target: 50, suffix: '%', label: 'Workload Automation Reduction', decimals: 0 },
   { target: 99.4, suffix: '%', label: 'Data Accuracy & Reconciliation', decimals: 1 }
 ];
@@ -289,6 +288,7 @@ Delivery Status = IF(Orders[DeliveryTimeMins] > 45, "Late", "On Time")`
 
 export const storeSaleData = {
   id: 'store-sale',
+  category: 'powerbi',
   title: 'Retail Store Sale & Performance Dashboard',
   subtitle: 'Store Sale Dashboard | Multi-Store Executive Performance & YoY Analysis',
   tag: 'Latest Power BI Project',
@@ -296,6 +296,7 @@ export const storeSaleData = {
   githubUrl: 'https://github.com/adarsh28102002/PowerBI-Store-Sale-Dashboard',
   pbixName: 'Store_Sale_Dashboard.pbix',
   records: 'Multi-Store Retail',
+  coverImage: 'assets/images/store_sale_overview.png',
   summary: 'Interactive and dynamic Power BI Dashboard engineered to analyze multi-location retail store performance (Stores A, B, C, D) and regional management territories. Delivers real-time executive tracking of net sales ($4.34M), customer reach (1,371), return volumes (372), and discount optimization (7.31%). Features Year-over-Year (YoY) dynamic UNICHAR arrows, traffic-light product color coding, and detailed store manager & salesperson operational matrices.',
   kpis: [
     { val: '$4.34M', lbl: 'Total Net Sales' },
@@ -504,6 +505,7 @@ SWITCH(
 
 export const foodDeliveryProjectData = {
   id: 'food-delivery',
+  category: 'powerbi',
   title: 'Food Delivery Analytics Dashboard',
   subtitle: 'Comprehensive 6-Page BI Suite Analyzing ~200,000 Food Delivery Transactions',
   tag: 'Flagship Power BI Project',
@@ -511,6 +513,7 @@ export const foodDeliveryProjectData = {
   githubUrl: 'https://github.com/adarsh28102002/food.swig.analystis',
   pbixName: 'Food_Delivery_Analytics.pbix',
   records: '~200,000 Transactions',
+  coverImage: 'assets/images/swiggy_p1_overview.png',
   summary: foodDeliveryFullData.summary,
   kpis: foodDeliveryFullData.kpis,
   architectureWorkflow: foodDeliveryFullData.architectureWorkflow,

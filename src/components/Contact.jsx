@@ -59,52 +59,64 @@ export default function Contact() {
             <div className="contact-methods">
               {/* Email */}
               <div className="contact-method-item">
-                <div className="contact-icon-box">
-                  <i className="fas fa-envelope"></i>
+                <div className="contact-method-main">
+                  <div className="contact-icon-box">
+                    <i className="fas fa-envelope"></i>
+                  </div>
+                  <div className="contact-details-col">
+                    <div className="contact-lbl">Email Address</div>
+                    <a href="mailto:adarshsinghas2020@gmail.com" className="contact-val">adarshsinghas2020@gmail.com</a>
+                  </div>
                 </div>
-                <div style={{ flexGrow: 1 }}>
-                  <div className="contact-lbl">Email Address</div>
-                  <a href="mailto:adarshsinghas2020@gmail.com" className="contact-val">adarshsinghas2020@gmail.com</a>
+                <div className="contact-action-box">
+                  <button 
+                    className="btn btn-outline btn-sm contact-copy-btn" 
+                    onClick={() => handleCopy('adarshsinghas2020@gmail.com', 'email')}
+                    title="Copy Email"
+                  >
+                    <i className={copiedKey === 'email' ? 'fas fa-check' : 'fas fa-copy'}></i>
+                    <span>{copiedKey === 'email' ? 'Copied!' : 'Copy'}</span>
+                  </button>
                 </div>
-                <button 
-                  className="btn btn-outline btn-sm" 
-                  onClick={() => handleCopy('adarshsinghas2020@gmail.com', 'email')}
-                  title="Copy Email"
-                >
-                  <i className={copiedKey === 'email' ? 'fas fa-check' : 'fas fa-copy'}></i>
-                  {copiedKey === 'email' && <span style={{ marginLeft: '4px' }}>Copied!</span>}
-                </button>
               </div>
 
               {/* Phone */}
               <div className="contact-method-item">
-                <div className="contact-icon-box">
-                  <i className="fas fa-phone-alt"></i>
+                <div className="contact-method-main">
+                  <div className="contact-icon-box">
+                    <i className="fas fa-phone-alt"></i>
+                  </div>
+                  <div className="contact-details-col">
+                    <div className="contact-lbl">Direct Phone & WhatsApp</div>
+                    <a href="tel:+916354441918" className="contact-val">+91 6354441918</a>
+                  </div>
                 </div>
-                <div style={{ flexGrow: 1 }}>
-                  <div className="contact-lbl">Direct Phone & WhatsApp</div>
-                  <a href="tel:+916354441918" className="contact-val">+91 6354441918</a>
+                <div className="contact-action-box">
+                  <button 
+                    className="btn btn-outline btn-sm contact-copy-btn" 
+                    onClick={() => handleCopy('+916354441918', 'phone')}
+                    title="Copy Phone Number"
+                  >
+                    <i className={copiedKey === 'phone' ? 'fas fa-check' : 'fas fa-copy'}></i>
+                    <span>{copiedKey === 'phone' ? 'Copied!' : 'Copy'}</span>
+                  </button>
                 </div>
-                <button 
-                  className="btn btn-outline btn-sm" 
-                  onClick={() => handleCopy('+916354441918', 'phone')}
-                  title="Copy Phone Number"
-                >
-                  <i className={copiedKey === 'phone' ? 'fas fa-check' : 'fas fa-copy'}></i>
-                  {copiedKey === 'phone' && <span style={{ marginLeft: '4px' }}>Copied!</span>}
-                </button>
               </div>
 
               {/* Location */}
               <div className="contact-method-item">
-                <div className="contact-icon-box">
-                  <i className="fas fa-map-marker-alt"></i>
+                <div className="contact-method-main">
+                  <div className="contact-icon-box">
+                    <i className="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div className="contact-details-col">
+                    <div className="contact-lbl">Location</div>
+                    <div className="contact-val">Surat, Gujarat, India (Adajan / Kadodara)</div>
+                  </div>
                 </div>
-                <div style={{ flexGrow: 1 }}>
-                  <div className="contact-lbl">Location</div>
-                  <div className="contact-val">Surat, Gujarat, India (Adajan / Kadodara)</div>
+                <div className="contact-action-box">
+                  <span className="badge badge-emerald">Onsite / Remote</span>
                 </div>
-                <span className="badge badge-emerald">Onsite / Remote</span>
               </div>
             </div>
 
