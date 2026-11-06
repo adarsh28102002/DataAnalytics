@@ -143,7 +143,7 @@ export default function ProjectsPage({ onOpenProjectModal, onBackToHome }) {
                     </div>
                   </div>
 
-                  {/* Card Content Body */}
+                  {/* Card Content Body - Exactly as requested */}
                   <div className="project-box-body">
                     <div className="project-box-meta">
                       <span className="project-box-tech">
@@ -153,42 +153,10 @@ export default function ProjectsPage({ onOpenProjectModal, onBackToHome }) {
 
                     <h2 className="project-box-title">{proj.title}</h2>
                     <p className="project-box-subtitle">{proj.subtitle}</p>
-                    <p className="project-box-summary">{proj.summary.slice(0, 155)}...</p>
 
-                    {/* Key KPI Chips */}
-                    {proj.kpis && proj.kpis.length > 0 && (
-                      <div className="project-box-kpis">
-                        {proj.kpis.slice(0, 4).map((k, kIdx) => (
-                          <div className="box-kpi-chip" key={kIdx}>
-                            <span className="box-kpi-val">{k.val}</span>
-                            <span className="box-kpi-lbl">{k.lbl}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card Footer Actions */}
-                  <div className="project-box-footer">
-                    <div className="box-action-hint">
-                      <span className="action-hint-pulse"></span>
-                      <span>Click box to open full project</span>
-                    </div>
-
-                    <div className="box-action-btns" onClick={(e) => e.stopPropagation()}>
-                      {proj.githubUrl && (
-                        <a 
-                          href={proj.githubUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="btn btn-outline btn-xs"
-                          title="Open GitHub Repository"
-                        >
-                          <i className="fab fa-github"></i>
-                        </a>
-                      )}
+                    <div className="project-box-btn-wrap" onClick={(e) => e.stopPropagation()}>
                       <button 
-                        className="btn btn-primary btn-sm box-full-btn"
+                        className="btn btn-primary btn-block box-full-btn"
                         onClick={() => handleCardClick(proj)}
                       >
                         <span>View Full Project</span>

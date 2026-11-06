@@ -11,7 +11,7 @@ export default function Navbar({ currentTheme, toggleTheme, currentView = 'home'
       setIsScrolled(scrollY > 40);
 
       if (currentView === 'home') {
-        const sectionIds = ['home', 'about', 'skills', 'resume', 'contact'];
+        const sectionIds = ['home', 'projects', 'about', 'skills', 'resume', 'contact'];
         for (const id of sectionIds) {
           const el = document.getElementById(id);
           if (el) {
@@ -41,6 +41,13 @@ export default function Navbar({ currentTheme, toggleTheme, currentView = 'home'
     closeMobileMenu();
 
     if (sectionId === 'projects') {
+      if (currentView === 'home') {
+        const el = document.getElementById('projects');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+      }
       if (onNavigate) {
         onNavigate('projects');
       } else {

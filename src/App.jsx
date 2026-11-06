@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Projects from './components/Projects';
 import About from './components/About';
 import Skills from './components/Skills';
 import ProjectsPage from './components/ProjectsPage';
@@ -113,6 +114,7 @@ export default function App() {
         ) : (
           <>
             <Hero onNavigateToProjects={() => navigateTo('projects')} />
+            <Projects onOpenProjectModal={(data) => handleOpenModal(data || { type: 'project' })} />
             <About />
             <Skills />
             <Resume />
