@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import BiArchitectureManifest from './components/BiArchitectureManifest';
 import Projects from './components/Projects';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -115,7 +114,6 @@ export default function App() {
         ) : (
           <>
             <Hero onNavigateToProjects={() => navigateTo('projects')} />
-            <BiArchitectureManifest />
             <Projects 
               onOpenProjectModal={(data) => handleOpenModal(data || { type: 'project' })} 
               onNavigateToProjects={() => navigateTo('projects')} 

@@ -59,30 +59,6 @@ export default function Hero({ onNavigateToProjects }) {
             <span>Available for Data Analyst & MIS Roles</span>
           </div>
 
-          {/* GitHub README-Style Shield Badges */}
-          <div className="hero-readme-badges">
-            <div className="badge-shield badge-blue">
-              <span className="shield-key">EXPERIENCE</span>
-              <span className="shield-val">4+ YEARS</span>
-            </div>
-            <div className="badge-shield badge-green">
-              <span className="shield-key">ACCURACY</span>
-              <span className="shield-val">99.4% MIS</span>
-            </div>
-            <div className="badge-shield badge-purple">
-              <span className="shield-key">RECORDS</span>
-              <span className="shield-val">10K+ ANALYZED</span>
-            </div>
-            <div className="badge-shield badge-amber">
-              <span className="shield-key">STACK</span>
-              <span className="shield-val">POWER BI • DAX</span>
-            </div>
-            <div className="badge-shield badge-cyan">
-              <span className="shield-key">LOCATION</span>
-              <span className="shield-val">SURAT, IN</span>
-            </div>
-          </div>
-
           <h1 className="hero-title">
             Transforming Complex Data Into <span className="text-gradient">Actionable Intelligence</span>
           </h1>

@@ -570,77 +570,6 @@ img {
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
-/* GitHub Shields.io Style Badges (ui-ux-pro-max-skill README design) */
-.hero-readme-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  margin: 4px 0 6px;
-}
-
-.badge-shield {
-  display: inline-flex;
-  align-items: stretch;
-  border-radius: 4px;
-  overflow: hidden;
-  font-family: var(--font-mono);
-  font-size: 0.70rem;
-  line-height: 1;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.badge-shield:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-}
-
-.badge-shield .shield-key {
-  background: #111827;
-  color: #94a3b8;
-  padding: 5px 8px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  display: flex;
-  align-items: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.badge-shield .shield-val {
-  padding: 5px 9px;
-  font-weight: 700;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-}
-
-.badge-shield.badge-blue .shield-val {
-  background: #2563eb;
-}
-
-.badge-shield.badge-green .shield-val {
-  background: #059669;
-}
-
-.badge-shield.badge-purple .shield-val {
-  background: #7c3aed;
-}
-
-.badge-shield.badge-amber .shield-val {
-  background: #d97706;
-}
-
-.badge-shield.badge-cyan .shield-val {
-  background: #0891b2;
-}
-
-[data-theme="light"] .badge-shield .shield-key {
-  background: #1e293b;
-  color: #e2e8f0;
-}
-
 .hero-title {
   font-size: 3.5rem;
   letter-spacing: -0.035em;
@@ -3666,197 +3595,6 @@ html, body {
 }
 
 /* ===================================================================
-   ENTERPRISE BI ARCHITECTURE MANIFEST (UI/UX Pro Max README Inspired)
-   =================================================================== */
-.manifest-section {
-  padding: 85px 0 65px;
-  position: relative;
-}
-
-.terminal-design-box {
-  background: #090e17;
-  border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-bottom: 36px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(6, 182, 212, 0.12);
-  padding: 0;
-}
-
-.terminal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  background: #0e1626;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.terminal-dots {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.terminal-dots .dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.terminal-dots .dot.red { background: #ef4444; }
-.terminal-dots .dot.yellow { background: #f59e0b; }
-.terminal-dots .dot.green { background: #10b981; }
-
-.terminal-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.terminal-tabs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.terminal-tab-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all var(--transition-fast);
-}
-
-.terminal-tab-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-main);
-  border-color: rgba(6, 182, 212, 0.4);
-}
-
-.terminal-tab-btn.active {
-  background: rgba(6, 182, 212, 0.18);
-  color: #38bdf8;
-  border-color: #38bdf8;
-  box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
-}
-
-.terminal-body {
-  padding: 24px;
-  background: #040812;
-  overflow-x: auto;
-  max-height: 520px;
-}
-
-.terminal-code {
-  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
-  font-size: 0.84rem;
-  line-height: 1.55;
-  color: #2dd4bf;
-  margin: 0;
-  white-space: pre;
-  tab-size: 2;
-}
-
-/* Feature & Domain Benchmark Matrix */
-.readme-matrix-card {
-  padding: 24px 28px;
-  margin-top: 10px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-}
-
-.matrix-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.matrix-card-header h4 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text-main);
-  margin: 0;
-}
-
-.matrix-table-wrap {
-  overflow-x: auto;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
-}
-
-.readme-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-  text-align: left;
-}
-
-.readme-table th {
-  background: rgba(15, 23, 42, 0.95);
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border-subtle);
-  white-space: nowrap;
-}
-
-.readme-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  color: var(--text-main);
-  white-space: nowrap;
-}
-
-.readme-table tr:last-child td {
-  border-bottom: none;
-}
-
-.readme-table tr:hover td {
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.readme-table code {
-  background: rgba(6, 182, 212, 0.1);
-  color: #38bdf8;
-  font-family: var(--font-mono);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.78rem;
-  border: 1px solid rgba(6, 182, 212, 0.2);
-}
-
-.readme-table .table-highlight {
-  color: var(--accent-emerald);
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-/* ===================================================================
    COMPREHENSIVE MOBILE RESPONSIVE SUITE (768px, 425px, 375px, 320px)
    Compact Typography, Scaled-Down Boxes, Ultra-Sleek Project Cards
    =================================================================== */
@@ -3877,7 +3615,6 @@ html, body {
   .hero-section {
     padding: 85px 0 45px;
   }
-  .manifest-section,
   .projects-section,
   .about-section,
   .skills-section,
@@ -3886,7 +3623,7 @@ html, body {
     padding: 55px 0 35px;
   }
 
-  /* Hero Typography & Shields */
+  /* Hero Typography */
   .hero-title {
     font-size: 1.85rem !important;
     line-height: 1.2;
@@ -3899,20 +3636,6 @@ html, body {
   .hero-status-pill {
     font-size: 0.76rem;
     padding: 4px 12px;
-  }
-  .hero-readme-badges {
-    gap: 6px;
-    margin: 4px 0 8px;
-  }
-  .badge-shield {
-    font-size: 0.64rem;
-    border-radius: 4px;
-  }
-  .badge-shield .shield-key {
-    padding: 3.5px 7px;
-  }
-  .badge-shield .shield-val {
-    padding: 3.5px 8px;
   }
   .hero-kpi-strip {
     grid-template-columns: repeat(2, 1fr);
@@ -3946,54 +3669,6 @@ html, body {
   .section-subtitle {
     font-size: 0.88rem !important;
     line-height: 1.5;
-  }
-
-  /* Terminal Architecture Manifest */
-  .terminal-design-box {
-    margin-bottom: 24px;
-    border-radius: var(--radius-md);
-  }
-  .terminal-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 14px;
-    gap: 8px;
-  }
-  .terminal-title {
-    font-size: 0.74rem;
-  }
-  .terminal-tabs {
-    width: 100%;
-    gap: 6px;
-  }
-  .terminal-tab-btn {
-    flex: 1;
-    justify-content: center;
-    font-size: 0.68rem;
-    padding: 5px 8px;
-  }
-  .terminal-body {
-    padding: 14px 16px;
-    max-height: 380px;
-  }
-  .terminal-code {
-    font-size: 0.72rem;
-    line-height: 1.45;
-  }
-  .readme-matrix-card {
-    padding: 16px 14px;
-    border-radius: var(--radius-md);
-  }
-  .matrix-card-header h4 {
-    font-size: 0.98rem;
-  }
-  .readme-table th,
-  .readme-table td {
-    padding: 8px 12px;
-    font-size: 0.76rem;
-  }
-  .readme-table code {
-    font-size: 0.70rem;
   }
 
   /* Showcase Card (Home Page) */
@@ -4140,7 +3815,6 @@ html, body {
   .hero-section {
     padding: 75px 0 35px;
   }
-  .manifest-section,
   .projects-section,
   .about-section,
   .skills-section,
@@ -4149,7 +3823,7 @@ html, body {
     padding: 45px 0 28px;
   }
 
-  /* Hero Typography & Shields */
+  /* Hero Typography */
   .hero-title {
     font-size: 1.48rem !important;
     line-height: 1.2;
@@ -4162,20 +3836,6 @@ html, body {
   .hero-status-pill {
     font-size: 0.72rem;
     padding: 3px 10px;
-  }
-  .hero-readme-badges {
-    gap: 5px;
-    margin: 3px 0 6px;
-  }
-  .badge-shield {
-    font-size: 0.58rem;
-    border-radius: 3.5px;
-  }
-  .badge-shield .shield-key {
-    padding: 2.5px 5px;
-  }
-  .badge-shield .shield-val {
-    padding: 2.5px 6px;
   }
   .hero-cta-group {
     flex-direction: column;
@@ -4219,51 +3879,6 @@ html, body {
   .section-subtitle {
     font-size: 0.80rem !important;
     line-height: 1.45;
-  }
-
-  /* Terminal Architecture Manifest */
-  .terminal-design-box {
-    margin-bottom: 18px;
-    border-radius: 10px;
-  }
-  .terminal-header {
-    padding: 8px 10px;
-    gap: 6px;
-  }
-  .terminal-title {
-    font-size: 0.70rem;
-  }
-  .terminal-tabs {
-    gap: 4px;
-  }
-  .terminal-tab-btn {
-    font-size: 0.62rem;
-    padding: 4px 6px;
-    border-radius: 4px;
-  }
-  .terminal-body {
-    padding: 10px 12px;
-    max-height: 320px;
-  }
-  .terminal-code {
-    font-size: 0.65rem;
-    line-height: 1.4;
-  }
-  .readme-matrix-card {
-    padding: 12px 10px;
-    border-radius: 10px;
-  }
-  .matrix-card-header h4 {
-    font-size: 0.88rem;
-  }
-  .readme-table th,
-  .readme-table td {
-    padding: 6px 8px;
-    font-size: 0.70rem;
-  }
-  .readme-table code {
-    font-size: 0.64rem;
-    padding: 1px 3px;
   }
 
   /* Showcase Card (Home Page) */
@@ -4419,7 +4034,6 @@ html, body {
   .hero-section {
     padding: 70px 0 30px;
   }
-  .manifest-section,
   .projects-section,
   .about-section,
   .skills-section,
@@ -4428,7 +4042,7 @@ html, body {
     padding: 40px 0 24px;
   }
 
-  /* Hero Typography & Shields */
+  /* Hero Typography */
   .hero-title {
     font-size: 1.35rem !important;
     line-height: 1.2;
@@ -4436,16 +4050,6 @@ html, body {
   .hero-lead {
     font-size: 0.80rem !important;
     line-height: 1.45;
-  }
-  .badge-shield {
-    font-size: 0.54rem;
-    border-radius: 3px;
-  }
-  .badge-shield .shield-key {
-    padding: 2px 4px;
-  }
-  .badge-shield .shield-val {
-    padding: 2px 5px;
   }
   .kpi-chip-val {
     font-size: 1.05rem !important;
@@ -4460,24 +4064,6 @@ html, body {
   }
   .section-subtitle {
     font-size: 0.76rem !important;
-  }
-
-  /* Terminal Architecture Manifest */
-  .terminal-code {
-    font-size: 0.60rem;
-    line-height: 1.35;
-  }
-  .terminal-tab-btn {
-    font-size: 0.58rem;
-    padding: 3px 5px;
-  }
-  .terminal-body {
-    padding: 8px 10px;
-  }
-  .readme-table th,
-  .readme-table td {
-    padding: 5px 6px;
-    font-size: 0.64rem;
   }
 
   /* Showcase Card (Home Page) */
@@ -4593,7 +4179,6 @@ html, body {
   .hero-section {
     padding: 60px 0 25px;
   }
-  .manifest-section,
   .projects-section,
   .about-section,
   .skills-section,
@@ -4602,7 +4187,7 @@ html, body {
     padding: 35px 0 20px;
   }
 
-  /* Hero Typography & Shields */
+  /* Hero Typography */
   .hero-title {
     font-size: 1.20rem !important;
     line-height: 1.2;
@@ -4610,13 +4195,6 @@ html, body {
   .hero-lead {
     font-size: 0.75rem !important;
     line-height: 1.4;
-  }
-  .badge-shield {
-    font-size: 0.48rem;
-  }
-  .badge-shield .shield-key,
-  .badge-shield .shield-val {
-    padding: 2px 3.5px;
   }
   .kpi-chip-val {
     font-size: 0.95rem !important;
@@ -4631,24 +4209,6 @@ html, body {
   }
   .section-subtitle {
     font-size: 0.70rem !important;
-  }
-
-  /* Terminal Architecture Manifest */
-  .terminal-code {
-    font-size: 0.54rem;
-    line-height: 1.28;
-  }
-  .terminal-tab-btn {
-    font-size: 0.52rem;
-    padding: 2px 4px;
-  }
-  .terminal-body {
-    padding: 6px 8px;
-  }
-  .readme-table th,
-  .readme-table td {
-    padding: 4px 5px;
-    font-size: 0.56rem;
   }
 
   /* Showcase Card (Home Page) */
