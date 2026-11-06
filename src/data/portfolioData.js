@@ -286,12 +286,264 @@ Delivery Status = IF(Orders[DeliveryTimeMins] > 45, "Late", "On Time")`
   ]
 };
 
+export const customerChurnData = {
+  id: 'customer-churn',
+  category: 'powerbi',
+  title: 'Customer Churn Prediction & Automated Retention Analytics',
+  subtitle: 'Customer Churn & Retention Analytics | 10,000 Records, DAX KPIs & n8n Automation',
+  tag: 'Latest Power BI & Automation',
+  badge: 'Power BI • DAX • n8n Automation • Retention',
+  githubUrl: 'https://github.com/adarsh28102002/Customer-Churn-Prediction-Automated-Retention-Analytics',
+  pbixName: 'Customer Churn Case Study.pbix',
+  records: '10,000 Records',
+  coverImage: 'assets/images/customer_churn_dashboard.png',
+  summary: 'Enterprise data analytics and automated retention pipeline analyzing 10,000 customer records to identify churn patterns and financial risk (₹13.97M Revenue at Risk). Features an interactive Power BI dashboard with dynamic purple HEX gradient switching (#3C096C, #7B2CBF, #E0AAFF), multi-tier risk segmentation (Active, At-Risk, High-Risk, Churned), satisfaction vs. recency correlation, and an automated n8n win-back notification workflow.',
+  kpis: [
+    { val: '10,000', lbl: 'Total Customers' },
+    { val: '9.17%', lbl: 'Customer Churn Rate' },
+    { val: '917', lbl: 'Churned Customers' },
+    { val: '₹13.97M', lbl: 'Revenue At Risk' },
+    { val: '3,600+', lbl: 'At-Risk Segment (31-60d)' },
+    { val: '10.40%', lbl: 'Top Churn (Referral)' },
+    { val: 'n8n', lbl: 'Automated Retention' },
+    { val: 'Daily 10 AM', lbl: 'Scheduled Workflow' }
+  ],
+  architectureWorkflow: [
+    'Raw Data Ingestion & ETL: Handled 10,000 customer records from Excel (customer_churn_case_study_10000.xlsx) via Power Query.',
+    'Data Cleaning & Hygiene: Deduplicated CustomerIDs, eliminated blank rows, validated column data types, and audited column quality.',
+    'Risk Segmentation Logic: Programmed conditional categorization on DaysSinceLastPurchase (0–30d Active, 31–60d At-Risk, 61–90d High-Risk, >90d Churned).',
+    'Core DAX Measures: Engineered formulas for Total Customers, Churned Customers (90d flag), Churn Rate %, Avg Order Value, Avg Satisfaction, and Revenue at Risk.',
+    'Dynamic Gradient Theming: Created dynamic HEX measures (#3C096C deep purple, #7B2CBF, #E0AAFF) for Risk Segment, Churn Rate, and Plan distribution charts.',
+    'Contextual Chart Titles: Implemented SELECTEDVALUE DAX measures dynamically reflecting filtered City and Membership Plan selections.',
+    'Automated Retention Engine (n8n): Designed a scheduled daily workflow at 10:00 AM reading from Google Sheets, isolating at-risk users, and sending personalized win-back emails.'
+  ],
+  daxMeasures: [
+    {
+      name: '1. Core KPI Measures (Total Customers, Churned, Rate, Revenue at Risk)',
+      code: `Total Customers =
+DISTINCTCOUNT(CustomerData[CustomerID])
+
+Churned Customers =
+CALCULATE(
+    [Total Customers],
+    CustomerData[Churned_90d] = 1
+)
+
+Churn Rate =
+DIVIDE(
+    [Churned Customers],
+    [Total Customers],
+    0
+)
+
+Average Order Value =
+DIVIDE(
+    SUM(CustomerData[TotalSpend_INR]),
+    SUM(CustomerData[TotalOrders]),
+    0
+)
+
+Average Satisfaction =
+AVERAGE(CustomerData[SatisfactionScore_1to5])
+
+Revenue at Risk =
+CALCULATE(
+    SUM(CustomerData[TotalSpend_INR]),
+    CustomerData[Churned_90d] = 1
+)`
+    },
+    {
+      name: '2. Dynamic HEX Color Gradient DAX Measures (Purple Palette)',
+      code: `// Risk Segment Dynamic Color
+RiskSegment Colour =
+VAR MaxChurn =
+    MAXX(
+        ALLSELECTED(CustomerData[RiskSegment]),
+        [Total Customers]
+    )
+VAR MinChurn =
+    MINX(
+        ALLSELECTED(CustomerData[RiskSegment]),
+        [Total Customers]
+    )
+VAR CurrentValue = [Total Customers]
+RETURN
+    SWITCH(
+        TRUE(),
+        CurrentValue = MaxChurn, "#3C096C",
+        CurrentValue = MinChurn, "#7B2CBF",
+        "#E0AAFF"
+    )
+
+// Churn Rate Channel Color
+Churn Rate Colour =
+VAR MaxChurn =
+    MAXX(
+        ALLSELECTED(CustomerData[AcquisitionChannel]),
+        [Churn Rate]
+    )
+VAR MinChurn =
+    MINX(
+        ALLSELECTED(CustomerData[AcquisitionChannel]),
+        [Churn Rate]
+    )
+VAR CurrentChurn = [Churn Rate]
+RETURN
+    SWITCH(
+        TRUE(),
+        CurrentChurn = MaxChurn, "#3C096C",
+        CurrentChurn = MinChurn, "#7B2CBF",
+        "#E0AAFF"
+    )`
+    },
+    {
+      name: '3. Dynamic Chart Titles via DAX & SELECTEDVALUE',
+      code: `// Acquisition Channel Title
+AcquisitionChannel Title =
+"Acquisition Channel by "
+    & SELECTEDVALUE(CustomerData[City], "All City")
+    & " and "
+    & SELECTEDVALUE(CustomerData[MembershipPlan], "All MembershipPlan")
+
+// Membership Plan Title
+Membership Plan Title =
+"Membership Plan by "
+    & SELECTEDVALUE(CustomerData[City], "All City")
+
+// Risk Segment Title
+Risk Segment Title =
+"Risk Segment by "
+    & SELECTEDVALUE(CustomerData[City], "All City")
+    & " and "
+    & SELECTEDVALUE(CustomerData[MembershipPlan], "All MembershipPlan")
+
+// Rating Title
+Rating Title =
+"Churn Rating by "
+    & SELECTEDVALUE(CustomerData[City], "All City")
+    & " and "
+    & SELECTEDVALUE(CustomerData[MembershipPlan], "All MembershipPlan")`
+    },
+    {
+      name: '4. Automated n8n Retention Workflow Architecture',
+      code: `// n8n Daily Retention Cron Execution (10:00 AM)
+1. Trigger: Daily Cron Schedule at 10:00 AM
+2. Node: Read Customer Data from Google Sheets API
+3. Node: IF Filter (RiskSegment == "At Risk" OR RiskSegment == "High Risk")
+4. Node: Template Formatter (Personalized name, churn risk factor, discount promo)
+5. Node: Email Dispatch (Automated personalized win-back delivery)`
+    }
+  ],
+  pages: {
+    overview: {
+      id: 'overview',
+      tabName: 'Executive Cockpit',
+      tabIcon: 'fas fa-chart-pie',
+      title: 'Customer Churn Executive Summary & KPI Cockpit',
+      subtitle: 'Core KPIs, Acquisition Channel Audits, Risk Segments & Membership Breakdown',
+      image: 'assets/images/customer_churn_dashboard.png',
+      desc: 'Interactive executive view monitoring 10,000 customers, 917 churned records (9.17% churn rate), and ₹13.97M revenue at risk. Incorporates multi-criteria slicers for City, Membership Plan, and Acquisition Channel with dynamic DAX color palettes.',
+      kpis: [
+        { val: '10,000', lbl: 'Total Customers' },
+        { val: '9.17%', lbl: 'Churn Rate' },
+        { val: '917', lbl: 'Churned Count' },
+        { val: '₹13.97M', lbl: 'Revenue At Risk' }
+      ],
+      features: ['Clustered Column Churn by Channel', 'Donut Membership Plan Split', 'Risk Segment Clustered Bars', 'Multi-Select City & Plan Slicers']
+    },
+    risk_analysis: {
+      id: 'risk_analysis',
+      tabName: 'Risk & Satisfaction',
+      tabIcon: 'fas fa-user-shield',
+      title: 'Customer Risk Segmentation & CSAT Correlation',
+      subtitle: 'Recency Inactivity Thresholds & Customer Satisfaction Trends',
+      image: 'assets/images/customer_churn_dashboard.png',
+      desc: 'Granular behavior analysis establishing the direct link between customer satisfaction and churn. Highlights that customers scoring 1-2 have an average recency of 75 days (approaching churn threshold), compared to 39 days for score 5 customers.',
+      kpis: [
+        { val: '3,600+', lbl: 'At-Risk Users (31-60d)' },
+        { val: '75 Days', lbl: 'Avg Recency (CSAT 1-2)' },
+        { val: '39 Days', lbl: 'Avg Recency (CSAT 5)' },
+        { val: '10.40%', lbl: 'Top Churn (Referral)' }
+      ],
+      features: ['Satisfaction vs Recency Correlation', 'Inactivity Milestone Thresholds', 'Acquisition Channel Quality Audit', 'Segment Migration Tracking']
+    },
+    automation_workflow: {
+      id: 'automation_workflow',
+      tabName: 'n8n Automation',
+      tabIcon: 'fas fa-robot',
+      title: 'Automated Retention & Win-Back Workflow',
+      subtitle: 'Scheduled Daily n8n Pipeline & Targeted Customer Re-engagement',
+      image: 'assets/images/customer_churn_dashboard.png',
+      desc: 'Designed automated customer win-back workflow in n8n running daily at 10:00 AM. Ingests data from Google Sheets, filters at-risk accounts before they cross the 90-day churn threshold, and automatically sends personalized retention emails with tailored offers.',
+      kpis: [
+        { val: '10:00 AM', lbl: 'Daily Cron Trigger' },
+        { val: 'Google Sheets', lbl: 'Source Sync' },
+        { val: 'Automated', lbl: 'Email Win-Back' },
+        { val: 'Zero', lbl: 'Manual Workload' }
+      ],
+      features: ['Daily Scheduled Cron Trigger', 'Real-Time Risk Segment Filter', 'Personalized Win-Back Template', 'Automated Email Dispatch']
+    },
+    dax_kpis: {
+      id: 'dax_kpis',
+      tabName: 'DAX Architecture',
+      tabIcon: 'fas fa-code',
+      title: 'Production DAX Measures & Dynamic Formatting',
+      subtitle: 'KPI Calculations, Purple Color Gradients & Contextual Titles',
+      image: 'assets/images/customer_churn_dashboard.png',
+      desc: 'Production-tested DAX expressions including DISTINCTCOUNT base customer aggregations, conditional churn filters, multi-tier HEX gradient color measures (#3C096C / #7B2CBF / #E0AAFF), and dynamic chart titles.',
+      kpis: [
+        { val: 'DISTINCTCOUNT', lbl: 'Base Metrics' },
+        { val: 'CALCULATE', lbl: 'Flag Filtering' },
+        { val: 'HEX Logic', lbl: 'Dynamic Gradients' },
+        { val: 'SELECTEDVALUE', lbl: 'Context Titles' }
+      ],
+      features: ['RiskSegment Colour Gradient Logic', 'Churn Rate Colour Switching', 'Dynamic Chart Title Measures', 'Revenue at Risk Aggregator']
+    }
+  },
+  deepdive: {
+    workflow: [
+      {
+        num: '1.',
+        title: 'Power Query Cleaning & Risk Categorization',
+        text: 'Ingested 10,000 customer records from Excel, deduplicated CustomerIDs, set data types, and generated the RiskSegment column (Active, At Risk, High Risk, Churned).'
+      },
+      {
+        num: '2.',
+        title: 'DAX Modeling & Dynamic Theming',
+        text: 'Programmed core measures (Total Customers, Churn Rate, Revenue at Risk) alongside custom DAX measures for dynamic purple HEX gradient color switching.'
+      },
+      {
+        num: '3.',
+        title: 'Automated n8n Retention Pipeline',
+        text: 'Architected daily scheduled workflow at 10:00 AM to filter at-risk users from Google Sheets and dispatch personalized win-back notifications.'
+      }
+    ],
+    highlights: [
+      {
+        icon: '✔',
+        title: 'Revenue at Risk Identification',
+        text: 'Accurately isolated ₹13.97M in revenue tied to churned customers, providing actionable financial justification for retention campaigns.'
+      },
+      {
+        icon: '✔',
+        title: 'Dynamic Gradient Theming',
+        text: 'Programmed custom DAX measures that automatically highlight highest and lowest churn segments in purple tones (#3C096C / #7B2CBF).'
+      },
+      {
+        icon: '✔',
+        title: 'Proactive Win-Back Automation',
+        text: 'Automated follow-up in n8n targeting 3,600+ customers before they churn, eliminating manual outreach effort.'
+      }
+    ]
+  }
+};
+
 export const storeSaleData = {
   id: 'store-sale',
   category: 'powerbi',
   title: 'Retail Store Sale & Performance Dashboard',
   subtitle: 'Store Sale Dashboard | Multi-Store Executive Performance & YoY Analysis',
-  tag: 'Latest Power BI Project',
+  tag: 'Retail Store BI',
   badge: 'Power BI • YoY DAX • Retail BI',
   githubUrl: 'https://github.com/adarsh28102002/PowerBI-Store-Sale-Dashboard',
   pbixName: 'Store_Sale_Dashboard.pbix',
@@ -557,7 +809,7 @@ export const foodDeliveryProjectData = {
   }
 };
 
-export const allProjects = [storeSaleData, foodDeliveryProjectData];
+export const allProjects = [customerChurnData, storeSaleData, foodDeliveryProjectData];
 
 export const certificationsData = [
   {

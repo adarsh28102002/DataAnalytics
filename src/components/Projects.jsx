@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { allProjects } from '../data/portfolioData';
 
 export default function Projects({ onOpenProjectModal, onNavigateToProjects }) {
-  const [activeProjectId, setActiveProjectId] = useState('store-sale');
+  const [activeProjectId, setActiveProjectId] = useState('customer-churn');
   const [activePageKey, setActivePageKey] = useState('overview');
   const [imgOpacity, setImgOpacity] = useState(1);
 
@@ -47,7 +47,7 @@ export default function Projects({ onOpenProjectModal, onNavigateToProjects }) {
               <i className="fas fa-th-large"></i> DEDICATED GALLERY AVAILABLE
             </span>
             <h4>Looking for all projects in a full grid view?</h4>
-            <p>Explore both enterprise Power BI projects in an isolated single-page grid gallery with live DAX and architecture.</p>
+            <p>Explore all enterprise Power BI & Automation projects in an isolated single-page grid gallery with live DAX and architecture.</p>
           </div>
           <button 
             className="btn btn-primary btn-sm cta-banner-btn"
@@ -87,8 +87,8 @@ export default function Projects({ onOpenProjectModal, onNavigateToProjects }) {
                   }}
                 >
                   <div className="project-card-top">
-                    <span className={`badge ${proj.id === 'store-sale' ? 'badge-emerald' : 'badge-amber'}`}>
-                      {proj.id === 'store-sale' ? 'NEW PROJECT' : 'FLAGSHIP'}
+                    <span className={`badge ${proj.id === 'customer-churn' ? 'badge-purple' : (proj.id === 'store-sale' ? 'badge-emerald' : 'badge-amber')}`}>
+                      {proj.id === 'customer-churn' ? 'LATEST PROJECT' : (proj.id === 'store-sale' ? 'RETAIL BI' : 'FLAGSHIP')}
                     </span>
                     <span className="project-card-records">
                       <i className="fas fa-database"></i> {proj.records}

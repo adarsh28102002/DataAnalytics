@@ -3,13 +3,14 @@ import { allProjects } from '../data/portfolioData';
 
 export default function ProjectsPage({ onOpenProjectModal, onBackToHome }) {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [activeProjectId, setActiveProjectId] = useState('store-sale');
+  const [activeProjectId, setActiveProjectId] = useState('customer-churn');
   const [activePageKey, setActivePageKey] = useState('overview');
   const [imgOpacity, setImgOpacity] = useState(1);
 
   const filteredProjects = allProjects.filter((p) => {
     if (activeFilter === 'all') return true;
     if (activeFilter === 'powerbi') return p.category === 'powerbi';
+    if (activeFilter === 'automation') return p.id === 'customer-churn';
     return true;
   });
 
@@ -92,6 +93,12 @@ export default function ProjectsPage({ onOpenProjectModal, onBackToHome }) {
               >
                 <i className="fas fa-chart-pie"></i> Power BI Dashboards ({allProjects.length})
               </button>
+              <button 
+                className={`filter-btn ${activeFilter === 'automation' ? 'active' : ''}`}
+                onClick={() => setActiveFilter('automation')}
+              >
+                <i className="fas fa-robot"></i> Retention & Automation (1)
+              </button>
             </div>
           </div>
 
@@ -127,7 +134,7 @@ export default function ProjectsPage({ onOpenProjectModal, onBackToHome }) {
                     </div>
 
                     <div className="project-box-badges">
-                      <span className={`badge ${proj.id === 'store-sale' ? 'badge-emerald' : (proj.id === 'food-delivery' ? 'badge-amber' : 'badge-purple')}`}>
+                      <span className={`badge ${proj.id === 'customer-churn' ? 'badge-purple' : (proj.id === 'store-sale' ? 'badge-emerald' : 'badge-amber')}`}>
                         {proj.tag}
                       </span>
                       <span className="project-box-records">
