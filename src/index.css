@@ -1495,29 +1495,39 @@ img {
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 12px 14px;
+  padding: 10px 12px;
   text-align: center;
   min-width: 0;
   overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mini-kpi-val {
   font-family: var(--font-mono);
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   font-weight: 700;
   color: var(--accent-cyan);
-  word-break: break-all;
-  overflow-wrap: break-word;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .mini-kpi-lbl {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-top: 2px;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  margin-top: 3px;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
 }
 
 .featured-tags {
@@ -1570,9 +1580,17 @@ img {
 
 .modal-kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .modal-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
 }
 
 /* ===================================================================
@@ -3216,42 +3234,53 @@ html, body {
 /* Mini KPI Chips Grid */
 .project-box-kpis {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
   margin-bottom: 20px;
   padding-top: 14px;
   border-top: 1px solid var(--border-subtle);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .box-kpi-chip {
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  padding: 8px 10px;
+  padding: 8px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .box-kpi-val {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 800;
   font-family: var(--font-mono);
   color: var(--accent-cyan);
-  line-height: 1.1;
+  line-height: 1.15;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .box-kpi-lbl {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: var(--text-dim);
   margin-top: 3px;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  text-align: center;
 }
 
 /* Box Card Footer */

@@ -299,14 +299,14 @@ export const customerChurnData = {
   coverImage: 'assets/images/customer_churn_dashboard.png',
   summary: 'Enterprise data analytics and automated retention pipeline analyzing 10,000 customer records to identify churn patterns and financial risk (₹13.97M Revenue at Risk). Features an interactive Power BI dashboard with dynamic purple HEX gradient switching (#3C096C, #7B2CBF, #E0AAFF), multi-tier risk segmentation (Active, At-Risk, High-Risk, Churned), satisfaction vs. recency correlation, and an automated n8n win-back notification workflow.',
   kpis: [
-    { val: '10,000', lbl: 'Total Customers' },
-    { val: '9.17%', lbl: 'Customer Churn Rate' },
-    { val: '917', lbl: 'Churned Customers' },
-    { val: '₹13.97M', lbl: 'Revenue At Risk' },
-    { val: '3,600+', lbl: 'At-Risk Segment (31-60d)' },
-    { val: '10.40%', lbl: 'Top Churn (Referral)' },
-    { val: 'n8n', lbl: 'Automated Retention' },
-    { val: 'Daily 10 AM', lbl: 'Scheduled Workflow' }
+    { val: '10,000', lbl: 'Customers' },
+    { val: '9.17%', lbl: 'Churn Rate' },
+    { val: '917', lbl: 'Churned' },
+    { val: '₹13.97M', lbl: 'Rev at Risk' },
+    { val: '3,600+', lbl: 'At-Risk (31-60d)' },
+    { val: '10.4%', lbl: 'Top Churn (Ref)' },
+    { val: 'n8n', lbl: 'Automation' },
+    { val: '10:00 AM', lbl: 'Daily Schedule' }
   ],
   architectureWorkflow: [
     'Raw Data Ingestion & ETL: Handled 10,000 customer records from Excel (customer_churn_case_study_10000.xlsx) via Power Query.',
@@ -444,10 +444,10 @@ Rating Title =
       image: 'assets/images/customer_churn_dashboard.png',
       desc: 'Interactive executive view monitoring 10,000 customers, 917 churned records (9.17% churn rate), and ₹13.97M revenue at risk. Incorporates multi-criteria slicers for City, Membership Plan, and Acquisition Channel with dynamic DAX color palettes.',
       kpis: [
-        { val: '10,000', lbl: 'Total Customers' },
+        { val: '10,000', lbl: 'Customers' },
         { val: '9.17%', lbl: 'Churn Rate' },
-        { val: '917', lbl: 'Churned Count' },
-        { val: '₹13.97M', lbl: 'Revenue At Risk' }
+        { val: '917', lbl: 'Churned' },
+        { val: '₹13.97M', lbl: 'Rev at Risk' }
       ],
       features: ['Clustered Column Churn by Channel', 'Donut Membership Plan Split', 'Risk Segment Clustered Bars', 'Multi-Select City & Plan Slicers']
     },
@@ -551,9 +551,9 @@ export const storeSaleData = {
   coverImage: 'assets/images/store_sale_overview.png',
   summary: 'Interactive and dynamic Power BI Dashboard engineered to analyze multi-location retail store performance (Stores A, B, C, D) and regional management territories. Delivers real-time executive tracking of net sales ($4.34M), customer reach (1,371), return volumes (372), and discount optimization (7.31%). Features Year-over-Year (YoY) dynamic UNICHAR arrows, traffic-light product color coding, and detailed store manager & salesperson operational matrices.',
   kpis: [
-    { val: '$4.34M', lbl: 'Total Net Sales' },
-    { val: '1,371', lbl: 'Total Customers' },
-    { val: '372', lbl: 'Total Returns' },
+    { val: '$4.34M', lbl: 'Net Sales' },
+    { val: '1,371', lbl: 'Customers' },
+    { val: '372', lbl: 'Returns' },
     { val: '7.31%', lbl: 'Avg Discount' },
     { val: 'YoY %', lbl: 'Dynamic Arrows' },
     { val: '5 Regions', lbl: 'North, East, West, Central, South' },
@@ -661,9 +661,9 @@ SWITCH(
       image: 'assets/images/store_sale_overview.png',
       desc: 'Real-time executive cockpit tracking Total Net Sales ($4.34M), Customer reach (1,371), Returns (372), and Average Discount (7.31%) alongside Year-over-Year (YoY) comparison. Features slicers for Year, Location, Region Manager, Customer Type, and Payment Method.',
       kpis: [
-        { val: '$4.34M', lbl: 'Total Net Sales' },
-        { val: '1,371', lbl: 'Total Customers' },
-        { val: '372', lbl: 'Total Returns' },
+        { val: '$4.34M', lbl: 'Net Sales' },
+        { val: '1,371', lbl: 'Customers' },
+        { val: '372', lbl: 'Returns' },
         { val: '7.31%', lbl: 'Avg Discount' }
       ],
       features: ['YoY Comparison with Dynamic Arrows', 'Net by Product Traffic Light Bars', 'Area Seasonal Monthly Trend', 'Donut Customer & Payment Split']
