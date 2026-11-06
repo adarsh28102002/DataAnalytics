@@ -109,7 +109,7 @@ export default function Navbar({ currentTheme, toggleTheme, currentView = 'home'
             >
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                 Projects
-                <span className="nav-projects-badge">2</span>
+                <span className="nav-projects-badge">3</span>
               </span>
             </a>
           </li>
